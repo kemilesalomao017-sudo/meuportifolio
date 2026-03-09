@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio | Kemile Salomão</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    
+    <style>
+      
+        :root {
+            --bg-principal: #0A0A0B; 
+            --bg-card: #161618;      
+            --texto-claro: #E0E0E0; 
+            --detalhe-roxo: #6C63FF; 
+            --detalhe-rose: #B76E79; 
+            --whats: #25D366;       
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-principal);
+            color: var(--texto-claro);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+       
+        .lado-texto {
+            background-color: var(--bg-card);
+            padding: 35px;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-style: italic;
+            margin: 20px auto;
+            border-radius: 12px;
+            max-width: 1000px;
+            color: var(--texto-claro);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .perfil-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            padding: 40px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            align-items: center;
+            min-height: 50vh;
+        }
+           .perfil-foto {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-width: 280px;
+        }
+
+        .perfil-foto img {
+            width: 100%;
+            max-width: 320px; 
+            border-radius: 20px; 
+            border: 3px solid var(--detalhe-rose); 
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+            transition: 0.5s;
+            filter: grayscale(20%); 
+        }
+
+        .perfil-foto img:hover {
+            filter: grayscale(0%);
+            transform: scale(1.02);
+            border-color: var(--detalhe-roxo); 
+        }
+
+        
+        @media (max-width: 768px) {
+            .perfil-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            #resumo-profissional {
+                border-right: none;
+                border-top: 4px solid var(--detalhe-rose);
+            }
+        }
+
+
+        #resumo-profissional {
+            flex: 2;
+            background-color: var(--bg-card);
+            padding: 40px;
+            border-radius: 20px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: suaveEntrada 1s forwards;
+            border-right: 4px solid var(--detalhe-rose);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+        }
+
+        @keyframes suaveEntrada {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        #resumo-profissional h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            margin-top: 0;
+            color: var(--detalhe-rose);
+        }
+
+        #resumo-profissional strong {
+            color: var(--detalhe-roxo);
+        }
+
+        .botao-resumo {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 40px;
+            background: linear-gradient(135deg, var(--detalhe-roxo), var(--detalhe-rose));
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .botao-resumo:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(108, 99, 255, 0.4);
+        }
+
+        /* --- SEÇÃO HABILIDADES --- */
+        #sobre-mim {
+            background-color: var(--bg-card);
+            padding: 70px 40px;
+            max-width: 1000px;
+            margin: 60px auto;
+            border-radius: 30px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        #sobre-mim h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--detalhe-roxo);
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 50px;
+        }
+
+        .habilidades-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .habilidades-item {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 30px;
+            border-radius: 15px;
+            transition: 0.4s;
+            border-bottom: 2px solid transparent;
+        }
+
+        .habilidades-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-bottom: 2px solid var(--detalhe-roxo);
+            transform: translateY(-10px);
+        }
+
+        .habilidades-item h3 {
+            color: var(--detalhe-rose);
+            margin-top: 0;
+            font-size: 18px;
+            letter-spacing: 1px;
+        }
+
+        ul { list-style: none; padding: 0; }
+        li { margin-bottom: 12px; font-size: 15px; color: #BBB; }
+        li::before { content: "✦"; margin-right: 12px; color: var(--detalhe-roxo); }
+
+        /* --- AVATAR FIXO --- */
+        #meu-avatar {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            width: 120px;
+            z-index: 9999;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        #meu-avatar.visivel {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        #meu-avatar img {
+            width: 100%;
+            border-radius: 50%;
+            border: 3px solid var(--bg-card);
+            outline: 2px solid var(--detalhe-rose);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+            transition: 0.4s;
+        }
+
+        #meu-avatar:hover img {
+            outline-color: var(--detalhe-roxo);
+            transform: rotate(5deg);
+        }
+
+        /* BALÃO DE FALA */
+        #meu-avatar::before {
+            content: "Vamos criar algo? 👋";
+            position: absolute;
+            right: 135px;
+            top: 25px;
+            background: var(--detalhe-rose);
+            color: #fff;
+            padding: 8px 15px;
+            border-radius: 15px 15px 0 15px;
+            font-size: 13px;
+            font-weight: 600;
+            white-space: nowrap;
+            opacity: 0;
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        #meu-avatar:hover::before {
+            opacity: 1;
+        }
+
+        /* ANIMAÇÃO DE PULSO SUTIL */
+        @keyframes pulsar {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+            100% { transform: scale(1); }
+        }
+
+        #meu-avatar.visivel {
+            animation: pulsar 3s infinite ease-in-out;
+        }
+
+        
+        #cursos-certificacoes {
+            background-color: var(--bg-card); 
+            padding: 70px 40px;
+            max-width: 1000px;
+            margin: 60px auto;
+            border-radius: 30px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        #cursos-certificacoes h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--detalhe-roxo);
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 50px;
+        }
+
+        .certificado-container {
+            width: 100%;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 2px solid rgba(108, 99, 255, 0.2); 
+        }
+
+        .foto-certificado {
+            width: 100%;
+            display: block;
+            transition: 0.4s;
+        }
+
+        .foto-certificado:hover {
+            transform: scale(1.05); 
+        }
+
+#cursos-certificacoes {
+            background-color: var(--bg-card);
+            padding: 60px 20px;
+            max-width: 1100px; /* Um pouco mais largo para acomodar dois cards */
+            margin: 60px auto;
+            border-radius: 30px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        #cursos-certificacoes h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--detalhe-roxo);
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 40px;
+        }
+
+        .certificados-flex-container {
+            display: flex;
+            justify-content: center; /* Centraliza os cards */
+            flex-wrap: wrap; /* Permite quebrar linha em telas pequenas */
+            gap: 30px; /* Espaço entre os cards */
+            padding: 0 20px;
+        }
+
+        .certificado-item-flex {
+            flex: 1; /* Distribui o espaço igualmente */
+            min-width: 300px; /* Largura mínima para o card */
+            max-width: 480px; /* Largura máxima para não ficar muito grande */
+            background: rgba(255, 255, 255, 0.02);
+            padding: 25px;
+            border-radius: 15px;
+            transition: 0.4s;
+            border-bottom: 2px solid transparent;
+        }
+
+        .certificado-item-flex:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-bottom: 2px solid var(--detalhe-roxo);
+            transform: translateY(-8px);
+        }
+
+        .certificado-item-flex h3 {
+            color: var(--detalhe-rose);
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .certificado-foto-wrapper {
+            width: 100%;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 2px solid rgba(108, 99, 255, 0.1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .foto-certificado-flex {
+            width: 100%;
+            height: auto; 
+            display: block;
+            transition: 0.4s;
+        }
+
+        .certificado-item-flex:hover .foto-certificado-flex {
+            transform: scale(1.03);
+        }
+
+       
+        .certificado-item-flex ul {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+        }
+
+        .certificado-item-flex li {
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: #BBB;
+        }
+
+        .certificado-item-flex li::before {
+            content: "✦";
+            margin-right: 10px;
+            color: var(--detalhe-roxo);
+        }
+    </style>
+
+
+    </style>
+</head>
+
+<body>
+
+    <div class="lado-texto">
+        Kemile Salomão | Creative Developer 
+    </div>
+
+    <div class="perfil-container">
+      <div class="perfil-foto">
+           <div class="perfil-foto">
+            <img src="Captura de tela 2026-03-07 225805.png" alt="Foto de Kemile Salomão">
+        </div>
+        </div>
+        <section id="resumo-profissional">
+            <h2> Olá, bem-vindo(a) so meu portifolio!</h2>
+            <p>
+                
+            <p>
+                Eu sou Kemile Salomão, estudante de analise e desenvolvimento de sistemas, apaixonada por tecnologia. Adoro resolver problemas, aprender coisas novas e encontrar soluções criativas. Este portifolio mostra um pouco do meu trabalho, minhas habilidades e meus interesses. Sinta-se é vontade para explorar e conhecer mais sobre mim!
+
+            </p>
+            <a href="#sobre-mim" class="botao-resumo">Ver Habilidades</a>
+        </section>
+    </div>
+
+    <div id="meu-avatar">
+        <a href="https://wa.me/5571981373035" target="_blank" title="Fale comigo no WhatsApp">
+            <img src="avatar 2.jpg" alt="Avatar Kemile">
+        </a>
+    </div>
+
+    <div id="sobre-mim">
+        <h2>Experiência ✨</h2>
+        <div class="habilidades-grid">
+            <div class="habilidades-item">
+                <h3>Development</h3>
+                <ul>
+                    <li>HTML5 & CSS3</li>
+                    <li>JavaScrip</li>
+                    
+                </ul>
+            </div>
+            <div class="habilidades-item">
+                <h3>Technical Core</h3>
+                <ul>
+                    <li>Fundamentos de Redes  </li>
+                    <li>Suporte N1</li>
+                    <li>Lógica de Programação </li>
+                </ul>
+            </div>
+            <div class="habilidades-item">
+                <h3>Workflow</h3>
+                <ul>
+                    <li>VS Code & Git/GitHub</li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const avatar = document.getElementById('meu-avatar');
+          
+            setTimeout(() => {
+                avatar.classList.add('visivel');
+            }, 1200);
+        });
+    </script>
+   <div id="cursos-certificacoes">
+        <h2>Certificações ✨</h2>
+        
+        <div class="certificados-flex-container">
+            
+            <div class="certificado-item-flex">
+                <h3>Inglês - CNA Master 2</h3>
+                <div class="certificado-foto-wrapper">
+                    <img src="certificado_kemile_de_jesus_saloma_o.png" alt="Certificado CNA Inglês B2" class="foto-certificado-flex">
+                </div>
+                <ul>
+                    <li>Nível: CEFR B2</li>
+                    <li>Carga Horária: 80 horas</li>
+                    <li>Conclusão: Dezembro de 2022</li></ul>
+            </div>
+
+        </div>
+    </div>
+
+    <section id="contato" style="text-align: center; padding: 60px 20px;">
+    <h2>Vamos conversar? 🚀</h2>
+    <p>Estou em busca da minha primeira oportunidade como desenvolvedora!</p>
+    <div style="margin-top: 20px;">
+        <a href="https://www.linkedin.com/in/kemile-salom%C3%A3o-b475b4203/" target="_blank" class="botao-resumo">LinkedIn</a>
+        <a href="https://github.com/kemilesalomao017-sudo" target="_blank" class="botao-resumo" style="background: var(--bg-card); border: 1px solid var(--detalhe-roxo);">GitHub</a> 
+        <a href="https://api.whatsapp.com/send/?phone=5571981373035&text&type=phone_number&app_absent=0" target="_blank" class="botao-resumo"> WhatsApp</a>
+    </div>
+</section>
+</body>
+</html>
